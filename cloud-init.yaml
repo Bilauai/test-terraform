@@ -1,0 +1,31 @@
+#cloud-config
+
+package_update: true
+
+packages:
+  - nginx
+
+write_files:
+  - path: /var/www/html/health
+    permissions: '0644'
+    content: |
+      healthy
+
+runcmd:
+  - |
+    HOSTNAME=$(hostname)
+    cat > /var/www/html/index.html <<EOF
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Terraform Demo 2026</title>
+      </head>
+      <body>
+        <h1>HA Terraform Demo</h1>
+        <p>Application running successfully 20th Aug 2026.</p>
+        <p>Served by VMSS instance: <strong>${HOSTNAME}</strong></p>
+      </body>
+    </html>
+    EOF
+  - systemctl enable nginx
+  - systemctl restart nginx
