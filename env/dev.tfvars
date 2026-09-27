@@ -1,4 +1,4 @@
-rg_name     = "testinggit"
+rg_name     = "trial"
 environment = "dev"
 location    = "centralus"
 
