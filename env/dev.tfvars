@@ -1,4 +1,4 @@
-rg_name     = "trial"
+rg_name     = "test"
 environment = "dev"
 location    = "centralus"
 
