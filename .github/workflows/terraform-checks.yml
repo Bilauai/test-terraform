@@ -1,0 +1,28 @@
+name: Terraform check
+
+on: 
+  pull_request:
+    branches: [main]
+
+jobs: 
+  fmt-validate:
+    name: Terraform fmt & validate
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      
+    - name: Terraform fmt
+      run: terraform fmt -recursive
+
+    - name: Terraform init
+      run: terraform init -backend=false
+
+    - name: Terraform validate
+      run: terraform validate
+
+      
