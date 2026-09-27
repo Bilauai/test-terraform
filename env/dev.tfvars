@@ -1,6 +1,6 @@
 rg_name     = "trial"
 environment = "dev"
-location    = "eastus2"
+location    = "germanywestcentral"
 
 network = {
   address_space = ["10.10.0.0/16"]
